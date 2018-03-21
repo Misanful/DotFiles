@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+# Terminate already running instances
+killall -q Name-of-thingy
+
+# Wait until the processes have been shut down
+while pgrep -x Name-of-thingy >/dev/null; do sleep 1; done
+
+# Launch thingy
+Name-of-thingy
+
+echo "Name-of-thingy launched..."
