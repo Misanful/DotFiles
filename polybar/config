@@ -24,11 +24,14 @@ radius = 0.0
 # border-color = #00ff00
 padding-left = 1
 padding-right = 1
-module-margin = 0
+module-margin = 1
 
-modules-left = i3 
-modules-center = date
-modules-right = battery
+modules-left = i3 battery 
+modules-center = memory date cpu 
+modules-right = temperature
+
+tray-position = right
+tray-padding = 3
 
 [module/i3]
 strip-wsnumbers = true
@@ -88,7 +91,7 @@ time-format = %H:%M
 format-charging = <animation-charging> <label-charging>
 format-discharging = <ramp-capacity> <label-discharging>
 label-charging = Charging %percentage%%
-label-discharging = Discharging %percentage%
+label-discharging = Discharging %percentage%%
 label-full = Fully charged
 
 ramp-capacity-0 = 
@@ -106,3 +109,51 @@ animation-charging-3 =
 animation-charging-4 = 
 
 animation-charging-framerate = 10
+
+[module/cpu]
+    type = internal/cpu
+    interval = 2
+    format = <label> <bar-load>
+    label = CPU
+    bar-load-width = 15
+    bar-load-foreground-0 = #F80000
+    ;bar-load-foreground-1 = #F80000
+    ;bar-load-foreground-2 = #F80000
+    ;bar-load-foreground-3 = #F80000
+    bar-load-indicator = |
+    bar-load-indicator-foreground = #ff
+    bar-load-indicator-font = 4
+    bar-load-fill = ─
+    bar-load-fill-font = 4
+    bar-load-empty = ─
+    bar-load-empty-font = 4
+    bar-load-empty-foreground = #F800000
+
+[module/memory]
+	type = internal/memory
+	format = <label> <bar-used>
+	label = RAM
+	interval = 3
+	bar-used-width = 15
+	bar-used-font = 4
+	bar-used-foreground-0 = #c00
+	;bar-used-foreground-1 = #aaff77
+	;bar-used-foreground-2 = #fba922
+	;bar-used-foreground-3 = #ff5555
+	bar-used-indicator = |
+	bar-used-indicator-foreground = #ff
+	bar-used-indicator-font = 4
+	bar-used-fill = ─
+	bar-used-fill-font = 4
+	bar-used-empty = ─
+	bar-used-empty-font = 4
+	bar-used-empty-foreground = #444444
+
+[module/temperature]
+	type = internal/temperature
+	interval = 1
+	units = true
+	thermal-zone = 0
+	format = <label>
+	label = |CPU-TEMP %temperature%|
+	
