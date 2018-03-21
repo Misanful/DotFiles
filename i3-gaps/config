@@ -3,7 +3,12 @@ set $mod Mod1
 
 # Set display resolution and wallpaper/color scheme
 exec_always --no-startup-id xrandr --output eDP-1 --mode 1366x768 --rate 60
-exec_always --no-startup-id wal -i ~/Pictures/Wal/white.jpg
+exec_always --no-startup-id wal -i ~/Pictures/Wal/newyork.jpg
+exec_always --no-startup-id $HOME/scripts/autostart.sh
+#exec_always --no-startup-id $HOME/scripts/bluetooth.sh
+#exec_always --no-startup-id $HOME/scripts/nmapplet.sh
+#exec_always --no-startup.id $HOME/scripts/kdeconnect.sh
+# exec_always nm-applet
 
 font pango:Overpass Regular 8
 
@@ -17,7 +22,7 @@ bindsym $mod+Shift+l exec ~/scripts/lock.sh
 floating_modifier $mod
 
 # Open new terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 #Close window
 bindsym $mod+Shift+q kill
@@ -133,11 +138,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
-# Finds out, if available)
-bar {
-        status_command i3status
-        mode invisible
-}
+# Finds out, if available
 
 new_window pixel 2
 
@@ -159,23 +160,13 @@ client.background       #ffffff
 # Apply .Xresource. As far as I know, only needed here if using starx (dont have a login manager)
 exec_always --no-startup-id xrdb ~/.Xresources
 
-# Apply the last colorscheme generated without changing the background by using -n 
-exec_always --no-startup-id wal -R -n
-
-# Apply a background different than the one used by wal
-# If this isn't needed, remove it and remove -n flag from the above command
-exec_always --no-startup-id feh --bg-fill ~/Pictures/Wal/bg1.jpg
-
 # Execute polybar on launch. Script kills current ones on i3 refresh, otherwise they duplicate
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl 
-set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl 
-set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 
-toggle # mute sound
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id "light -A -b 10"
