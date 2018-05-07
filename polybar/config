@@ -26,9 +26,9 @@ padding-left = 1
 padding-right = 1
 module-margin = 1
 
-modules-left = i3 battery 
+modules-left = i3 title
 modules-center = memory date cpu 
-modules-right = temperature
+modules-right = battery
 
 tray-position = right
 tray-padding = 3
@@ -59,7 +59,7 @@ label-urgent-padding = 1
 [module/date]
 type = internal/date
 interval = 1.0
-date = %A, %d %B %I:%M %p
+date = %d %B%I:%M %p
 
 # [module/github]
 # type = internal/github
@@ -78,7 +78,7 @@ type = internal/xwindow
 # format-background = #f00
 format-foreground = #f0c674
 format-padding = 1
-label-maxlen = 50
+label-maxlen = 42
 
 [module/battery]
 type = internal/battery
@@ -112,7 +112,7 @@ animation-charging-framerate = 10
 
 [module/cpu]
     type = internal/cpu
-    interval = 2
+    interval = 0.5
     format = <label> <bar-load>
     label = CPU
     bar-load-width = 15
@@ -148,12 +148,3 @@ animation-charging-framerate = 10
 	bar-used-empty = ─
 	bar-used-empty-font = 4
 	bar-used-empty-foreground = #444444
-
-[module/temperature]
-	type = internal/temperature
-	interval = 1
-	units = true
-	thermal-zone = 0
-	format = <label>
-	label = |CPU-TEMP %temperature%|
-	
