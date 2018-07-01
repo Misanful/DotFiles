@@ -71,7 +71,7 @@ format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = #1f1f1f
 format-connected-background = #8abeb7
 format-connected-padding = 2
-label-connected = %essid% | lacri%downspeed%
+label-connected = %essid% | %downspeed%
 label-connected-foreground = #1f1f1f
 
 format-disconnected = |
