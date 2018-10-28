@@ -1,5 +1,5 @@
 set $mod Mod1
-set $TERMINAL gnome-terminal
+set $TERMINAL alacritty
 
 new_window pixel 1
 new_float normal
@@ -216,6 +216,7 @@ exec --no-startup-id clipit
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec_always --no-startup-id /$HOME/.config/polybar/i3wmthemer_bar_launch.sh
+exec_always killall conky && conky -c /$HOME/.conky/simple/conkyrc_dark
 
 # Theme colors
 client.focused #c6c6c6 #1f1f1f #c6c6c6 #8abeb7 #8abeb7
