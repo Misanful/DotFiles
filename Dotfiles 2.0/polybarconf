@@ -1,14 +1,14 @@
-[bar/i3wmthemer_bar]
+[bar/bar]
 width = 100%
 height = 27
 radius = 0
 fixed-center = true
 
 background = #1f1f1f
-foreground = #c6c6c6
+foreground = #ffddff
 
 line-size = 3
-line-color =
+line-color = 
 
 border-size = 0
 border-color =
@@ -25,7 +25,7 @@ font-2 = "Font Awesome 5 Brands:pixelsize=10;1"
 
 modules-left = wlan eth filesystem battery
 modules-center = i3
-modules-right = mem cpu spotify audio bluetooth powermenu date
+modules-right = mem cpu audio bluetooth powermenu date
 
 tray-position =
 ;tray-padding =
@@ -34,33 +34,27 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [module/i3]
+strip-wsnumbers = true
 type = internal/i3
 format = <label-state> <label-mode>
-index-sort = true
-wrapping-scroll = false
-
-label-mode-padding = 2
-label-mode-foreground = #828282
-label-mode-background = #1f1f1f
 
 label-focused = %index%
-label-focused-background = #8abeb7
-label-focused-foreground = #1f1f1f
-label-focused-padding = 2
+label-focused-foreground = #cc6666
+label-focused-background = #1d1f21
+label-focused-underline = #fba922
+label-focused-padding = 1
 
 label-unfocused = %index%
-label-unfocused-background = #8abeb7
-label-unfocused-foreground = #1f1f1f
-label-unfocused-padding = 2
+label-unfocused-padding = 1
 
 label-visible = %index%
-label-visible-background = #8abeb7
-label-visible-foreground = #1f1f1f
-label-visible-padding = 2
+label-visible-underline = #555555
+label-visible-padding = 1
 
 label-urgent = %index%
-label-urgent-background = #BA2922
-label-urgent-padding = 2
+label-urgent-foreground = #000000
+label-urgent-background = #bd2c40
+label-urgent-padding = 1
 
 [module/wlan]
 type = internal/network
@@ -69,7 +63,7 @@ interval = 1
 
 format-connected = <ramp-signal> <label-connected>
 format-connected-foreground = #1f1f1f
-format-connected-background = #8abeb7
+format-connected-background = #ffddff
 format-connected-padding = 2
 label-connected = %essid% | %downspeed%
 label-connected-foreground = #1f1f1f
@@ -90,7 +84,7 @@ interval = 3.0
 
 format-connected-padding = 2
 format-connected-foreground = #1f1f1f
-format-connected-background = #8abeb7
+format-connected-background = #ffddff
 format-connected-prefix = " "
 format-connected-prefix-foreground = #1f1f1f
 label-connected = %linkspeed% | %local_ip%
@@ -109,7 +103,7 @@ time-alt = %H:%M:%S
 
 format-prefix = 
 format-foreground = #1f1f1f
-format-background = #8abeb7
+format-background = #ffddff
 format-padding = 2
 
 label = %date% %time%
@@ -122,11 +116,11 @@ expand-right = true
 format-spacing = 1
 
 label-open = 
-label-open-foreground = #8abeb7
+label-open-foreground = #ffddff
 label-close =  cancel
-label-close-foreground = #8abeb7
+label-close-foreground = #ffddff
 label-separator = |
-label-separator-foreground = #8abeb7
+label-separator-foreground = #ffddff
 
 menu-0-0 = reboot
 menu-0-0-exec = menu-open-1
@@ -178,11 +172,11 @@ poll-interval = 5
 ; Default: %H:%M:%S
 time-format = %H:%M
 
-format-full-foreground = #8abeb7
+format-full-foreground = #ffddff
 format-full-background = #1f1f1f
-format-charging-foreground = #8abeb7
+format-charging-foreground = #ffddff
 format-charging-background = #1f1f1f
-format-discharging-foreground = #8abeb7
+format-discharging-foreground = #ffddff
 format-discharging-background = #1f1f1f
 
 ; Available tags:
@@ -256,11 +250,11 @@ content = 
 
 ; "content" has the same properties as "format-NAME"
 content-background = #1f1f1f
-content-foreground = #8abeb7
+content-foreground = #ffddff
 content-padding = 1
 
 ; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
-click-left = exec pavucontrol
+click-left = exec pavucontrol &
 click-middle =
 click-right =
 
@@ -270,25 +264,11 @@ content = 
 
 ; "content" has the same properties as "format-NAME"
 content-background = #1f1f1f
-content-foreground = #8abeb7
+content-foreground = #ffddff
 content-padding = 1
 
 ; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
-click-left = exec blueman-manager
-click-middle =
-click-right =
-
-[module/spotify]
-type = custom/text
-content = 
-
-; "content" has the same properties as "format-NAME"
-content-background = #1f1f1f
-content-foreground = #8abeb7
-content-padding = 1
-
-; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
-click-left = exec spotify
+click-left = exec blueman-manager &
 click-middle =
 click-right =
 
@@ -299,7 +279,7 @@ type = internal/cpu
 ; Default: 1
 interval = 0.5
 
-format-foreground = #8abeb7
+format-foreground = #ffddff
 format-background = #1f1f1f
 
 ; Available tags:
@@ -340,7 +320,7 @@ type = internal/memory
 ; Default: 1
 interval = 3
 
-format-foreground = #8abeb7
+format-foreground = #ffddff
 format-background = #1f1f1f
 
 format = <label>
@@ -383,7 +363,7 @@ fixed-values = true
 ; Default: 2
 spacing = 0
 
-label-mounted-foreground = #8abeb7
+label-mounted-foreground = #ffddff
 label-mounted-background = #1f1f1f
 
 ; Available tokens:
