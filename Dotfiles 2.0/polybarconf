@@ -8,7 +8,7 @@ background = #1f1f1f
 foreground = #ffddff
 
 line-size = 3
-line-color = 
+line-color =
 
 border-size = 0
 border-color =
@@ -268,7 +268,7 @@ content-foreground = #ffddff
 content-padding = 1
 
 ; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c $COMMAND"
-click-left = exec blueman-manager &
+click-left = exec blueberry &
 click-middle =
 click-right =
 
